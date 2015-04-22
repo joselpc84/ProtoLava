@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ProtoLava\Scripts\Utils\QuadTiles.cs">
+    <Files>
+      <File FileName="Assets\ProtoLava\Scripts\Char States\MoveState.cs" Line="1" Column="1" />
+      <File FileName="Assets\ProtoLava\Scripts\MeltingObjects.cs" Line="1" Column="1" />
+      <File FileName="Assets\ProtoLava\Scripts\FloatingSteelFrame.cs" Line="1" Column="1" />
+      <File FileName="Assets\ProtoLava\Scripts\Utils\QuadTiles.cs" Line="9" Column="21" />
+      <File FileName="Assets\ProtoLava\Scripts\Utils\FloorType.cs" Line="40" Column="6" />
+      <File FileName="Assets\ProtoLava\Scripts\Inputs\InputController.cs" Line="70" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
