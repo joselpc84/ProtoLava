@@ -44,7 +44,7 @@ public class InputController : MonoBehaviour {
 
 	void LateUpdate()
 	{
-		if (transform.GetComponent<FloorType> ().inGround) {
+		if (transform.GetComponent<FloorType> ().inGroundEstable || transform.GetComponent<FloorType> ().inGroundDinamico) {
 			if (isTouch) {
 				if (!isPressed) {
 					Debug.Log ("Pos: " + GetCurrentInput () + "It's Pressed");

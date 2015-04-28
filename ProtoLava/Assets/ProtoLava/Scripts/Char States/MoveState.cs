@@ -65,6 +65,7 @@ public class MoveState : FSMState {
 		rigidBody.AddForce (Vector3.up * magnitudSalto);
 		rigidBody.AddForce (Vector3.forward * magnitudAlcanceX);
 
+
 		//Vector3 targetDir = target.position - transform.position.z + 10;
 		//Vector3 forward = transform.forward.y + 3;
 		//float angle = Vector3.Angle (targetDir, forward);

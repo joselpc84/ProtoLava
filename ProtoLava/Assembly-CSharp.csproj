@@ -56,6 +56,7 @@
      <Compile Include="Assets\ProtoLava\Scripts\Utils\FSMState.cs" />
      <Compile Include="Assets\ProtoLava\Scripts\Utils\FSMSystem.cs" />
      <Compile Include="Assets\ProtoLava\Scripts\Utils\FloorType.cs" />
+     <Compile Include="Assets\ProtoLava\Scripts\Utils\FloorsAddMovement.cs" />
      <Compile Include="Assets\ProtoLava\Scripts\Utils\ListExtension.cs" />
      <Compile Include="Assets\ProtoLava\Scripts\Utils\MovingFloors.cs" />
      <Compile Include="Assets\ProtoLava\Scripts\Utils\ObjectPool.cs" />

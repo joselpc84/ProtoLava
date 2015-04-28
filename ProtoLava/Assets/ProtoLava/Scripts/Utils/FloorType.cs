@@ -4,15 +4,17 @@ using System.Collections;
 public class FloorType : MonoBehaviour {
 
 	public float groundDist = 0.0F;
-	public LayerMask layer;
+	public LayerMask layerPisoEstable;
+	public LayerMask layerPisoDinamico;
 	public Transform objeto;
-	public bool inGround = true;
+	public bool inGroundEstable = true;
+	public bool inGroundDinamico = false;
 	//public float rayDist
 
 	// Use this for initialization
 	void Start () {
 	
-		groundDist = transform.GetComponent<CapsuleCollider> ().bounds.extents.y;
+		groundDist = transform.GetComponent<Collider> ().bounds.extents.y;
 	}
 	/*
 	public bool IsGrounded(){
@@ -26,16 +28,27 @@ public class FloorType : MonoBehaviour {
 		//int layerMask = 1 << 8;
 
 		RaycastHit hitEstable;
+		RaycastHit hitDinamico;
 
 		Debug.DrawRay(objeto.position, -Vector3.up * groundDist, Color.yellow);
 
 		//Physics.Raycast(
 
-		if (Physics.Raycast (objeto.position, -Vector3.up, out hitEstable,groundDist, layer)) {
-			inGround = true;
+		if (Physics.Raycast (objeto.position, -Vector3.up, out hitEstable,groundDist, layerPisoEstable)) {
+			inGroundEstable = true;
+			inGroundDinamico = false;
 			//Debug.Log ("TOCANDO PISO");
-		} else {
-			inGround = false;
+		} else if(Physics.Raycast (objeto.position, -Vector3.up, out hitDinamico,groundDist, layerPisoDinamico)){
+			inGroundEstable = false;
+			inGroundDinamico = true;
+			transform.SetParent(GameObject.Find("pisoMovil").transform);
+			transform.position = Vector3.zero;
+			transform.rotation = Quaternion.identity;
+
+		}	
+		else
+		{
+			inGroundEstable = false;
 			//Debug.DrawRay(objeto, -Vector3.up * 1000, Color.white);
 			//Debug.Log ("EN EL AIRE");
 		}

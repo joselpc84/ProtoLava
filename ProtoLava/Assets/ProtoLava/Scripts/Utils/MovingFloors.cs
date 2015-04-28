@@ -7,9 +7,6 @@ public class MovingFloors : MonoBehaviour {
 
 	public int size = 1;
 
-	public bool bordeIzq = false;
-	public bool bordeDer = false;
-
 	private Vector3 posicion;
 
 
@@ -18,9 +15,11 @@ public class MovingFloors : MonoBehaviour {
 	
 		posicion = transform.position;
 
-		//posicion.x = 2;
-		//posicion.y = 0.5F;
-		//posicion.z = -9.9F;
+
+		posicion.x = 0.0F;
+		posicion.y = 0.2F;
+		posicion.z = 2.0F;
+
 
 		pisoMovil.Spawn(posicion, pisoMovil.rotation);
 
@@ -30,29 +29,6 @@ public class MovingFloors : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		posicion.z += 1;
-		/*
-		if (!bordeDer && !bordeIzq) {
-			posicion.z = transform.position.z + 0.1F;
-		} else if (bordeIzq && !bordeDer) {
-			posicion.z = transform.position.z + 0.1F;
-		} else if (bordeDer && !bordeIzq) {
-			posicion.z = transform.position.z - 0.1F;
-		}
 
-		if (transform.position.z >= 10) {
-			bordeDer = true;
-			bordeIzq = false;
-		}
- 
-		if (transform.position.z <= -10) {
-			bordeIzq = true;
-			bordeDer = false;
-		}
-		*/
-
-		transform.position = Vector3.Lerp (transform.position, posicion, 0.2F);
-
-		//transform.Translate (posicion);
 	}
 }
