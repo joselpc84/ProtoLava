@@ -6,15 +6,20 @@ public class FloorType : MonoBehaviour {
 	public float groundDist = 0.0F;
 	public LayerMask layerPisoEstable;
 	public LayerMask layerPisoDinamico;
+	public LayerMask layerPisoLava;
 	public Transform objeto;
 	public bool inGroundEstable = true;
 	public bool inGroundDinamico = false;
+	public bool inGroundLava = false;
+
+	public bool showDebugs = true;
 	//public float rayDist
 
 	// Use this for initialization
 	void Start () {
 	
-		groundDist = transform.GetComponent<Collider> ().bounds.extents.y;
+		//groundDist = transform.GetChild(0).GetComponent<CapsuleCollider> ().bounds.extents.y;
+		groundDist = 1.01F;
 	}
 	/*
 	public bool IsGrounded(){
@@ -25,6 +30,15 @@ public class FloorType : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		//objeto.position = GameObject.Find("PisoMovil(Clone)").transform.position;
+
+		//Debug.Log (GameObject.Find("Plataforma").GetComponent<MovingFloors>().posicion);
+		//Debug.Log (GameObject.Find("Plataforma").transform.GetChild(0).position);
+	//ESTE	//Debug.Log (GameObject.Find("PisoMovil(Clone)").transform.position);
+		//Debug.Log (GameObject.Find("PisoMovil(Clone)").GetComponent<MovingFloors>().posicion);
+		//Debug.Log (GameObject.Find ("PisoMovil(Clone)").GetComponent<MovingFloors> ().pisoMovil.transform.position);
+		//Debug.Log (GameObject.Find("Plataforma").GetComponentInChildren<
+
 		//int layerMask = 1 << 8;
 
 		RaycastHit hitEstable;
@@ -37,15 +51,45 @@ public class FloorType : MonoBehaviour {
 		if (Physics.Raycast (objeto.position, -Vector3.up, out hitEstable,groundDist, layerPisoEstable)) {
 			inGroundEstable = true;
 			inGroundDinamico = false;
+			inGroundLava = false;
+			objeto.rotation = Quaternion.identity;
+
+			if(showDebugs)
+			{
+				Debug.Log ("EN TIERRA FIRME");
+			}
 			//Debug.Log ("TOCANDO PISO");
 		} else if(Physics.Raycast (objeto.position, -Vector3.up, out hitDinamico,groundDist, layerPisoDinamico)){
 			inGroundEstable = false;
 			inGroundDinamico = true;
-			transform.SetParent(GameObject.Find("pisoMovil").transform);
-			transform.position = Vector3.zero;
-			transform.rotation = Quaternion.identity;
+			inGroundLava = false;
+			Vector3 pos;
+			//pos.x = GameObject.Find("PisoMovil(Clone)").transform.position.x;
+			pos.x = GameObject.Find("PisoMovil(Clone)").transform.localPosition.x;
+			pos.y = 1.2F;
+			//pos.z = GameObject.Find("PisoMovil(Clone)").transform.position.z;
+			pos.z = GameObject.Find("PisoMovil(Clone)").transform.localPosition.z;
+			objeto.position = pos;
+			objeto.rotation = Quaternion.identity;
 
-		}	
+			if(showDebugs)
+			{
+				Debug.Log ("EN PLATAFORMA");
+			}
+
+		} else if(Physics.Raycast (objeto.position, -Vector3.up, out hitDinamico,groundDist, layerPisoLava)){
+			inGroundEstable = false;
+			inGroundDinamico = false;
+			inGroundLava = true;
+
+			objeto.Translate (Vector3.down * Time.deltaTime);
+
+			if(showDebugs)
+			{
+				Debug.Log("MUERTO");
+			}
+
+		}
 		else
 		{
 			inGroundEstable = false;
@@ -53,4 +97,5 @@ public class FloorType : MonoBehaviour {
 			//Debug.Log ("EN EL AIRE");
 		}
 	}
+	
 }

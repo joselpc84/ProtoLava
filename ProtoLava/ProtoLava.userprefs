@@ -1,15 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ProtoLava\Scripts\Utils\MovingFloors.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ProtoLava\Scripts\Char States\MoveState.cs">
     <Files>
-      <File FileName="Assets\ProtoLava\Scripts\Inputs\InputController.cs" Line="17" Column="4" />
+      <File FileName="Assets\ProtoLava\Scripts\CameraScroll.cs" Line="1" Column="1" />
       <File FileName="Assets\ProtoLava\Scripts\Utils\FloorType.cs" Line="1" Column="1" />
-      <File FileName="Assets\ProtoLava\Scripts\Char States\MoveState.cs" Line="1" Column="1" />
-      <File FileName="Assets\ProtoLava\Scripts\MeltingObjects.cs" Line="1" Column="1" />
-      <File FileName="Assets\ProtoLava\Scripts\FloatingSteelFrame.cs" Line="1" Column="1" />
-      <File FileName="Assets\ProtoLava\Scripts\Utils\QuadTiles.cs" Line="1" Column="1" />
-      <File FileName="Assets\ProtoLava\Scripts\Utils\MovingFloors.cs" Line="56" Column="36" />
+      <File FileName="Assets\ProtoLava\Scripts\Char States\MoveState.cs" Line="61" Column="2" />
+      <File FileName="Assets\ProtoLava\Scripts\LavaFloor.cs" Line="1" Column="1" />
+      <File FileName="Assets\ProtoLava\Scripts\Char States\IdleState.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
